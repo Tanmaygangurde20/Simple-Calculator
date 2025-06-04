@@ -1,57 +1,221 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
 }
 
-body{
+body {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(45deg,#0a0a0a,#3a4453);
-}
-
-.calculator{
-    border: 1px solid #717377;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 20px;
-    border-radius: 16px;
-    background: transparent;
-    box-shadow: 0px 3px 15px rgba(113,115,119,0.5) ;
-
 }
 
-input{
-    width: 320px;
-    cursor: pointer;
+.calculator {
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    padding: 25px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3),
+                0 5px 15px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    max-width: 400px;
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+
+.calculator:hover {
+    transform: translateY(-5px);
+}
+
+input {
+    width: 100%;
     border: none;
-    padding: 24px;
-    margin: 10px;
-    background: transparent;
-    box-shadow: 0px 3px 15px rgba(84,84,84,0.1);
-    font-size: 40px;
+    padding: 25px 20px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.2);
+    font-size: clamp(28px, 5vw, 40px);
     text-align: right;
     color: #ffffff;
-
+    font-weight: 300;
+    letter-spacing: 1px;
+    outline: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
 }
 
-input::placeholder{
-    color: #ffffff;
+input:focus {
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3),
+                0 0 20px rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
 }
-button{
-    border:none;
-    width: 60px;
-    height: 60px;
-    margin: 10px;
-    border-radius: 50%;
-    background: transparent;
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.calculator > div {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.calculator > div:last-child {
+    margin-bottom: 0;
+}
+
+button {
+    border: none;
+    aspect-ratio: 1;
+    min-height: 60px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
     color: #ffffff;
-    font-size: 20px;
+    font-size: clamp(16px, 3vw, 20px);
+    font-weight: 500;
     cursor: pointer;
-    box-shadow: -8px -8px 15px rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
 }
-.eqlBtn{
-    background-color: orange;
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+button:hover::before {
+    left: 100%;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Operator buttons */
+button:nth-child(4n) {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    color: white;
+    font-weight: 600;
+}
+
+button:nth-child(4n):hover {
+    background: linear-gradient(135deg, #ff5252, #d63031);
+}
+
+/* Special buttons */
+button:first-child,
+button:nth-child(2),
+button:nth-child(3) {
+    background: linear-gradient(135deg, #74b9ff, #0984e3);
+    color: white;
+    font-weight: 600;
+}
+
+button:first-child:hover,
+button:nth-child(2):hover,
+button:nth-child(3):hover {
+    background: linear-gradient(135deg, #6c5ce7, #5f3dc4);
+}
+
+.eqlBtn {
+    background: linear-gradient(135deg, #00b894, #00a085) !important;
+    color: white !important;
+    font-weight: 700 !important;
+    font-size: clamp(18px, 3vw, 24px) !important;
+}
+
+.eqlBtn:hover {
+    background: linear-gradient(135deg, #00cec9, #00b894) !important;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .calculator {
+        padding: 20px;
+        border-radius: 20px;
+    }
+    
+    input {
+        padding: 20px 15px;
+        margin-bottom: 15px;
+        border-radius: 12px;
+    }
+    
+    .calculator > div {
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+    
+    button {
+        min-height: 50px;
+        border-radius: 12px;
+    }
+}
+
+@media (max-width: 320px) {
+    .calculator {
+        padding: 15px;
+    }
+    
+    input {
+        padding: 15px 12px;
+    }
+    
+    .calculator > div {
+        gap: 8px;
+    }
+    
+    button {
+        min-height: 45px;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .calculator {
+        border: 3px solid #ffffff;
+        background: rgba(0, 0, 0, 0.8);
+    }
+    
+    button {
+        border: 2px solid #ffffff;
+    }
 }
