@@ -1,3 +1,9 @@
+
+
+Experiment 03  -Hello World
+
+
+
 #!/usr/bin/env python
 #
 # Copyright 2007 Google Inc.
@@ -42,6 +48,20 @@ app = webapp2.WSGIApplication([
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
+
+
+
+
+
+
+
+######################################################################################################3
+
+
+
+#Matrix Multiplication
+
 '''
 import webapp2
 
@@ -97,6 +117,19 @@ app = webapp2.WSGIApplication([
 ], debug=True)
 '''
 
+
+
+
+
+
+
+
+
+
+
+
+#############################################################################################
+
 #N even numbers
 import webapp2
 
@@ -151,15 +184,15 @@ app = webapp2.WSGIApplication([
 
 
 
+######################################################################################################
 
+Installing the GAE:
 
 https://www.npackd.org/p/com.google.AppEnginePythonSDK/1.9.62
-
-
 https://www.python.org/downloads/release/python-2712/
 
-
-
+#########################################################################################################
+Experiment -5:
 
 !pip install tensorflow numpy pillow ultralytics opencv-python
 from ultralytics import YOLO
@@ -202,22 +235,13 @@ plt.imshow(img_rgb)
 plt.axis("off")
 plt.show()
 
+###################################################################################
 
-
-$ sudo apt install net-tools
-$ sudo apt update
-
-
-
-$ touch tranfer.txt
-$ nano transfer.txt
--> hey, How are you?
-ctrl + X and save
-Some Commands for Linux Based Distros:
-ls - list all the files and directories
-cat - show the content inside a file
-scp - it will help us to copy files from one vm to other
-cd - change directory
-mkdir - make a new directory
-touch - it makes a new file
-nano - nano is a editor inside linux os
+Ubuntu Command
+C compiler :
+gcc --version
+sudo apt install build-essential
+cd Desktop/
+touch hello.c
+gcc hello.c -o test
+./test
