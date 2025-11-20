@@ -63,20 +63,19 @@ Create a new Solidity file under `contracts/`:
 ```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
-
 contract SimpleStorage {
-    uint256 storedData;
-
-    event DataStored(uint256 data);
-
-    function set(uint256 x) public {
-        storedData = x;
-        emit DataStored(storedData);
-    }
-
-    function get() public view returns (uint256) {
-        return storedData;
-    }
+ uint256 storedData;
+ // Event to log data changes
+ event DataStored(uint256 data);
+ // Store a new value
+ function set(uint256 x) public {
+ storedData = x;
+ emit DataStored(storedData);
+ }
+ // Retrieve the stored value
+ function get() public view returns (uint256) {
+ return storedData;
+ }
 }
 ```
 
@@ -288,6 +287,7 @@ contract HelloWorld {
 </body>
 </html>
 ```
+
 
 
 
